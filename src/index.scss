@@ -1,0 +1,40 @@
+@import "reset";
+
+$header-default-height: 72px;
+$main-dark-color:#002f34; 
+@import "header";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body{
+  font-family: sans-serif;
+}
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.link{
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  &--light{
+    color: $main-dark-color;
+    background-color: #fff;
+  }
+  &--dark{
+    color: #fff;
+    background-color: $main-dark-color;
+  }
+}
+
+.active-lang{
+  color:rgb(35,229,219);
+}

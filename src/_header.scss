@@ -1,0 +1,99 @@
+header{
+  color: white;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  transition: 0.5s;
+  min-height: $header-default-height;
+  background-color: $main-dark-color;
+    .topbarbanner{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 16px;
+      color: black;
+      background-color: rgb(255, 246, 217);
+        .bannerWrapper{
+          display: flex;
+          align-items: center;
+          gap: 16px;
+            img{
+              height: 40px;
+            }
+            .opacity{
+              color: black;
+            &:hover{
+              opacity: 0.5;
+            }
+            }
+            button {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+                svg{
+                  font-size: 16px;
+                } 
+            }
+        }
+    }
+    .bgImg{
+      display: block;
+      height: 1100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      background-image: url("https://tpc.googlesyndication.com/simgad/2896798993148242100?");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .header__wrapper{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+        a{
+          height: 100%;
+            img{
+              height: 100%;
+            }
+        }
+        nav {
+          display: flex;
+          align-items: center;
+          gap: 0 40px;
+            .language-select {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+            .header__nav-link {
+              display: flex;
+              align-items: center;
+              gap: 0 10px;
+              color: white;
+                .addedToLike{
+                  color: green;
+                  fill: white;
+                  font-size: 25px;
+                }
+            }
+            .TbHeart{
+              gap: 0;
+            }
+            .header__nav-link-basket{
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              color: white;
+                .addedToCart{
+                  font-size: 22px;
+                  padding: 2px;
+                  border-radius: 10px;
+                  background: green;
+                }
+            }
+        }
+    }
+}
