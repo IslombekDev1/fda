@@ -1,0 +1,12 @@
+.searchItem__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.FiHeart{
+    fill: red;
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+}

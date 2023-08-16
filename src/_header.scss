@@ -26,6 +26,9 @@ header{
               opacity: 0.5;
             }
             }
+            .opacity:active{
+              color: grey;
+            }
             button {
               background-color: transparent;
               border: none;
@@ -67,6 +70,12 @@ header{
               display: flex;
               align-items: center;
               gap: 10px;
+              li{
+                cursor: pointer;
+              }
+              .active-lang{
+                cursor: inherit;
+              }
             }
             .header__nav-link {
               display: flex;

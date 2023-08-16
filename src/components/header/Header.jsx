@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { TbHeart, TbMessageCircle2, TbUser } from "react-icons/tb";
 import { RiShoppingBasketLine, RiShoppingBasketFill} from 'react-icons/ri';
 import {AiOutlineClose} from "react-icons/ai";
@@ -17,7 +17,6 @@ const Header = () => {
   const likedProduct = useSelector(state => state.likedReduser.likedProducts);
   const basketReduser = useSelector(state => state.basketReduser.purchasedProducts);
   const [renderDelete, setRenderDelete] = useState(false)
-  console.log(renderDelete);
   
   var prevScrollpos = window.pageYOffset;
   window.addEventListener("scroll", function() {
@@ -32,8 +31,7 @@ const Header = () => {
 
   return location.pathname.includes("/auth") ? <></> : (
     <header ref={navigation}>
-      {location.pathname.includes("/like") ? <></> : location.pathname.includes("/basket") ? <></> 
-      : renderDelete === false ?
+      {location.pathname.includes("/like") ? <></> : location.pathname.includes("/basket") ? <></> : !renderDelete ?
       <div className="topbarbanner">
           <div className="bannerWrapper">
               <img src="https://static.olx.uz/static/olxuz/packed/font/2f59441384162eee8400133e61c255338e.svg" alt="warningImg" />
@@ -43,9 +41,9 @@ const Header = () => {
           </div>
 
           <div className="bannerWrapper">
-            <NavLink className="opacity" to="https://www.youtube.com/watch?v=_xpoOKy527I&feature=youtu.be">
+            <Link className="opacity" to="https://www.youtube.com/watch?v=_xpoOKy527I&feature=youtu.be">
                 {t("header_warningClose")}
-            </NavLink>
+            </Link>
             <button className='opacity' onClick={() => setRenderDelete(true)} > <AiOutlineClose /> </button>
           </div>
       </div>

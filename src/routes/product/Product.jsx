@@ -9,7 +9,7 @@ import {FiHeart} from "react-icons/fi";
 
 const Product = () => {
   const productIdData = useParams();
-  const [data, isLoading] = useFetchData(`https://api.escuelajs.co/api/v1/products/${productIdData.id}`)
+  const [data, isLoading] = useFetchData(`https://fakestoreapi.com/products/${productIdData.id}`)
   console.log(data);
 
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Product = () => {
                 :
                 <img src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" alt="" />
               } */}
-              <img src={data.images?.at(0)} alt="er" /> 
+              <img src={data.image} alt={data.image} width={350}/> 
             </div>
             <div className='single-product__info'>
               <h1> {data.title} </h1>

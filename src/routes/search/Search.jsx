@@ -11,7 +11,7 @@ const Search = () => {
   const [upperSelect, setupperSelect] = useState(1);
   var [filterResult, setfilterResult] = useState([]);
   const productInfo = useParams();
-  var data = useFetchData(`https://api.escuelajs.co/api/v1/products/?title=${productInfo.productName}`);
+  var [data] = useFetchData(`https://api.escuelajs.co/api/v1/products/?title=${productInfo.productName}`);
   const prices = [1, 10, 100, 1000, 10000, 100000];
 
   useEffect(() => {
@@ -28,8 +28,7 @@ const Search = () => {
   if(filterResult.length > 0){
     data = filterResult;
   } 
-                    
-console.log(filterResult);
+  console.log(filterResult);
   return (
     <section className='search-result'>
       <SearchComp />
@@ -52,22 +51,12 @@ console.log(filterResult);
         </div>
         <div className="search-result__wrapper">
           {
-            data.map(searchItem =>
-              <div className="product-item" key={searchItem.id}>
-                <Link to={`/product/${searchItem.id}`}>
-                  {
-                    searchItem.images?.at(0) && searchItem.images?.at(0).starsWith("https//:") ?
-                    <img src={searchItem.images?.at(0)} alt="" />
-                    :
-                    <img width={300} src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" alt="" />
-                  }
-                </Link>
-                <div>
-                  <h2>{searchItem.title}</h2>
-                  <p>{searchItem.description} </p>
-                  <strong>${searchItem.price}</strong>
-                </div>
-              </div>   
+            data?.map(searchItem =>
+              // console.log(searchItem)
+              <div>
+                <img width={200} src={searchItem.images[0]} alt="" />
+                <strong>{searchItem.title}</strong>
+              </div>
             )
           }
         </div>

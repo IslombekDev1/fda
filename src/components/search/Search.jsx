@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Container from '../../utils/Container';
+import { FiSearch } from 'react-icons/fi';
 import { Link} from "react-router-dom";    
 import "./Search.scss";
-import { useTranslation } from 'react-i18next';
 
 const Search = () => {
   const [searchResult, setsearchResult] = useState([]);
@@ -29,9 +29,8 @@ const Search = () => {
           <div className="search__wrapper">
             <div className='search__elements'>
               <FiSearch />
-              <input onChange={giveSearchSuggestions} type="text" placeholder={t("search_placeholder")} />
-              {/* <input onChange={giveSearchSuggestions} type="text" placeholder={t("search_placeholder")} /> */}
-              {searchResult.length > 0 && searchValue ?
+              <input onChange={(e) => giveSearchSuggestions(e)} type="text" placeholder={t("search_placeholder")} />
+              {searchResult?.length > 0 && searchValue ?
               <div className='search__suggestions'>
                 {
                   searchResult?.map(searchItem =>
@@ -42,7 +41,8 @@ const Search = () => {
                 }
               </div> : <></>}
             </div>
-            <button><FiSearch onSubmit={giveMoreResults}/> {t("search_btn")} </button>
+            {/*                event - voqea */}
+            <button> <FiSearch onSubmit={giveMoreResults}/> {t("search_btn")} </button>
           </div>
         </form>
       </Container>

@@ -32,6 +32,12 @@ section.categories{
     font-size: 22px;
     text-transform: capitalize;
   }
+  .categoriesLoading{
+    display: flex;
+    justify-content: center;
+    width: 97%;
+    font-size: 25px;
+  }
 }
 
 .d-none{

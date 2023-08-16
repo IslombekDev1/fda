@@ -45,12 +45,14 @@
           gap: 13px;
           svg{
             font-size: 30px;
+            cursor: copy;
           }
           .heartFill{
             cursor: none;
+            color: red;
           }
           .heart{
-            cursor: pointer;
+            cursor: grab;
           }
           .heart:hover{
             color: red;

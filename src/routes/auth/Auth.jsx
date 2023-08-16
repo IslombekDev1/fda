@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import Create from './create/Create';
 import "./Auth.css";

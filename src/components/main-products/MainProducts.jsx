@@ -13,7 +13,7 @@ import blankImg from "../../assets/blank.jpg";
 
 const MainProducts = () => {
   const dispatch = useDispatch();
-  const [data, isLoading] = useFetchData("https://api.escuelajs.co/api/v1/products?offset=10&limit=20");
+  const [data, isLoading] = useFetchData("https://fakestoreapi.com/products");
   const { t } = useTranslation();
 
   function trimDescription(str){
@@ -29,8 +29,8 @@ const MainProducts = () => {
   };
 
   const likedProduct = useSelector(state => state.likedReduser.likedProducts)
-
   function removeFromLikeProducts(product){
+  //jo'natish
     dispatch({id: product.id, type:"REMOVE_FROM_LIKED" })
   }
 
@@ -41,31 +41,31 @@ const MainProducts = () => {
         <div className="main-products__wrapper">
           {!isLoading ?
             data?.map(product => 
-              <div className='product-item'  key={product.id}>
+              <div className='product-item' key={product.id}>
                 <Link to={`/product/${product.id}`}>
                     {
-                      product.images?.at(0).startsWith("https://") && <img className='product-item__img' src={product.images?.at(0)} alt="product-item__img" />
+                      product.image?.startsWith("https://") && <img className='product-item__img' src={product.image} alt="product-item__img" />
                     }
 
                     {
-                      product.images?.at(0).startsWith("https://api") && <img width={200} src={blankImg} alt="blankImg" />
+                      product.image?.startsWith("https://api") && <img width={200} src={blankImg} alt="blankImg" />
                     }
                   <h3> {product.title} </h3>
                 </Link>
                 <div className='product-item__info'>
                   <div>
                     <p> {trimDescription(product.description)} </p>
-                    <strong> ${product.price} </strong>
+                    <strong> ${product.price}  </strong>
                   </div>
                   <div className='info__icon'>
                     <RiShoppingBasketLine onClick={() => addToBasket(product)} />
-                    {/*           toping        */}
-                    {likedProduct.find(omborMalumot => omborMalumot?.id === product?.id) ? <BsFillSuitHeartFill className='heartFill' onClick={() => removeFromLikeProducts(product)} style={{color: 'red'}} />
+                    {likedProduct.find(omborMalumot => omborMalumot?.id === product?.id) ? <BsFillSuitHeartFill className='heartFill' onClick={() => removeFromLikeProducts(product)} />
                     : <FiHeart className='heart' onClick={() => addToLike(product)} /> }
                     {likedProduct.length === 1 && likedProduct.find(omborMalumot => omborMalumot.id === product.id) && alert("1 product has been added to like or there is 1 product") } 
                   </div>
                 </div>
-              </div>  
+              </div> 
+              // console .log(product) 
             )
             :
             <p className='loading'>Loading...</p>
